@@ -27,14 +27,14 @@
       <% let toppings = ingredients.toppings; %>
 
       <h2 id="recipeTitle">
-        <%- selectedRecipe.name %>
+        <%= selectedRecipe.name %>
       </h2>
       <h3>Ingredients:</h3>
       <ul id="ingredientsList">
-        <li><%- protein.name %>, <%- protein.preparation %></li>
-        <li><%- salsa.name %></li>
+        <li><%= protein.name %>, <%= protein.preparation %></li>
+        <li><%= salsa.name %></li>
         <% toppings.forEach(topping => { %>
-        <li><%- topping.quantity %> <%- topping.name %></li>
+        <li><%= topping.quantity %> <%= topping.name %></li>
         <% }); %>
       </ul>
     <% } %>
