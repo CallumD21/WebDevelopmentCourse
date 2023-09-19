@@ -32,6 +32,16 @@ app.get("/filter", (req, res) => {
 });
 
 //4. POST a new joke
+app.post("/jokes", (req, res) => {
+  let newJoke = {
+    id: jokes.length + 1,
+    jokeText: req.body.text,
+    jokeType: req.body.type
+  };
+
+  jokes.push(newJoke);
+  res.json(newJoke);
+});
 
 //5. PUT a joke
 
