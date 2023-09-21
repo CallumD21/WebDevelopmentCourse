@@ -59,7 +59,7 @@ app.get("/posts/:id", (req, res) => {
 //CHALLENGE 3: POST a new post
 app.post("/posts", (req, res) => {
   let newPost = {
-    id : posts.length + 1,
+    id: posts.length + 1,
     title: req.body.title,
     content: req.body.content,
     author: req.body.author,
@@ -71,6 +71,26 @@ app.post("/posts", (req, res) => {
 });
 
 //CHALLENGE 4: PATCH a post when you just want to update one parameter
+app.patch("/posts/:id", (req, res) => {
+  let postId = parseInt(req.params.id);
+  let selectedPostIndex = posts.findIndex(post => post.id === postId);
+
+  if (selectedPostIndex === -1)
+    res.sendStatus(404);
+  else{
+    let selectedPost = posts[selectedPostIndex];
+    let newPost = {
+      id: selectedPost.id,
+      title: req.body.title || selectedPost.title,
+      content: req.body.content || selectedPost.content,
+      author: req.body.author || selectedPost.author,
+      date: new Date().toISOString()
+    }
+  
+    posts[selectedPostIndex] = newPost;
+    res.json(newPost);
+  }
+});
 
 //CHALLENGE 5: DELETE a specific post by providing the post id.
 
