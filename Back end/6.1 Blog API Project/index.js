@@ -67,7 +67,7 @@ app.post("/posts", (req, res) => {
   }
 
   posts.push(newPost);
-  res.json(newPost);
+  res.status(201).json(newPost);
 });
 
 //CHALLENGE 4: PATCH a post when you just want to update one parameter
