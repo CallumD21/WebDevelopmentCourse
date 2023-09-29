@@ -1,12 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 const name = "Callum";
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+
+root.render(
   <div>
     <p>Created by {name}</p>
     <p>Copyright {new Date().getFullYear()}</p>
-  </div>,
-  document.getElementById("root")
+  </div>
 );

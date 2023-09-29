@@ -1,7 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+
+root.render(
   <div>
     <h1>My most recently watched films</h1>
     <ul>
@@ -9,6 +11,5 @@ ReactDOM.render(
       <li>Tenet</li>
       <li>Oppenheimer</li>
     </ul>
-  </div>,
-  document.getElementById("root")
+  </div>
 );
