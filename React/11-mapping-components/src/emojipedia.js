@@ -19,5 +19,14 @@ const emojipedia = [
         name: "Rolling On The Floor, Laughing",
         meaning:
             "This is funny! A smiley face, rolling on the floor, laughing. The face is laughing boundlessly. The emoji version of “rofl“. Stands for „rolling on the floor, laughing“."
+    },
+    {
+        id: 4,
+        emoji: "😎",
+        name: "Face With Sunglasses",
+        meaning:
+            "It expresses coolness and confidence and is used to convey a carefree, relaxed attitude or to express that something is excellent."
     }
 ];
+
+export default emojipedia;
