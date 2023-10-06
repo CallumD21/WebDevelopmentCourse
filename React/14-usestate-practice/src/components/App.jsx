@@ -10,6 +10,8 @@ function App() {
         setTime(currentTime);
     }
 
+    setInterval(showTime, 1000);
+
     return (
         <div className="container">
             <h1>{time}</h1>
