@@ -19,7 +19,7 @@ function App() {
         <div className="container">
             <form onSubmit={submitName}>
                 <h1>Hello {displayName}</h1>
-                <input type="text" placeholder="What's your name?" onChange={captureNameChange} />
+                <input type="text" placeholder="What's your name?" onChange={captureNameChange} value={name} />
                 <button type="submit">Submit</button>
             </form>
         </div>
