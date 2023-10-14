@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
 function App() {
+
+    const [name, setName] = useState("");
+    const [displayName, setDisplayName] = useState("");
+
+    function captureNameChange(event) {
+        setName(event.target.value);
+    }
+
+    function submitName(event) {
+        setDisplayName(name);
+
+        event.preventDefault();
+    }
+
     return (
         <div className="container">
-            <h1>Hello </h1>
-            <input type="text" placeholder="What's your name?" />
-            <button>Submit</button>
+            <form onSubmit={submitName}>
+                <h1>Hello {displayName}</h1>
+                <input type="text" placeholder="What's your name?" onChange={captureNameChange} />
+                <button type="submit">Submit</button>
+            </form>
         </div>
     );
 }
