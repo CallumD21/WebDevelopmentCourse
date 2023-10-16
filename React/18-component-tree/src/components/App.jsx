@@ -19,10 +19,10 @@ function App() {
         setListItem("");
     }
 
-    function createListItem(item) {
+    function createListItem(item, index) {
         return (
             <ToDoItem
-                key={toDoList.indexOf(item)}
+                key={index}
                 item={item} />
         );
     }
