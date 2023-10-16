@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ToDoItem from "./ToDoItem";
 
 function App() {
 
@@ -19,7 +20,11 @@ function App() {
     }
 
     function createListItem(item) {
-        return (<li key={toDoList.indexOf(item)}>{item}</li>);
+        return (
+            <ToDoItem
+                key={toDoList.indexOf(item)}
+                item={item} />
+        );
     }
 
     return (
