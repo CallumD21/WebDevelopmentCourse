@@ -17,15 +17,15 @@ function App() {
         };
 
         setNotes(prevValue => {
-            let newNotes = [...prevValue, newNote];
+            let newNotes = [...prevNotes, newNote];
 
-            return [...prevValue, newNote];
+            return [...prevNotes, newNote];
         });
     }
 
     function deleteNote(noteId) {
-        setNotes(prevValue => {
-            let newNotes = prevValue.filter(note => note.id != noteId);
+        setNotes(prevNotes => {
+            let newNotes = prevNotes.filter(note => note.id != noteId);
 
             return newNotes;
         });
