@@ -4,8 +4,10 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 
-function createNote(note, index) {
-    return (<Note key={index} title={note.title} content={note.content} />)
+let noteId = 1;
+
+function createNote(note) {
+    return (<Note key={note.id} title={note.title} content={note.content} />)
 }
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
 
     function addNote(title, content) {
         const newNote = {
+            id: noteId++,
             title: title,
             content: content
         };
