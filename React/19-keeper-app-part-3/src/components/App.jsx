@@ -9,14 +9,14 @@ let noteId = 1;
 function App() {
     const [notes, setNotes] = useState([]);
 
-    function addNote(title, content) {
+    function addNote(note) {
         const newNote = {
             id: noteId++,
-            title: title,
-            content: content
+            title: note.title,
+            content: note.content
         };
 
-        setNotes(prevValue => {
+        setNotes(prevNotes => {
             let newNotes = [...prevNotes, newNote];
 
             return [...prevNotes, newNote];
