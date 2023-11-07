@@ -6,10 +6,6 @@ import CreateArea from "./CreateArea";
 
 let noteId = 1;
 
-function createNote(note) {
-    return (<Note key={note.id} title={note.title} content={note.content} />)
-}
-
 function App() {
     const [notes, setNotes] = useState([]);
 
@@ -23,8 +19,20 @@ function App() {
         setNotes(prevValue => {
             let newNotes = [...prevValue, newNote];
 
+            return [...prevValue, newNote];
+        });
+    }
+
+    function deleteNote(noteId) {
+        setNotes(prevValue => {
+            let newNotes = prevValue.filter(note => note.id != noteId);
+
             return newNotes;
         });
+    }
+
+    function createNote(note) {
+        return (<Note key={note.id} id={note.id} title={note.title} content={note.content} deleteNote={deleteNote} />)
     }
 
     return (
