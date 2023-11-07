@@ -11,19 +11,10 @@ function CreateArea(props) {
     function updateNote(event) {
         const { name, value } = event.target;
         setNote(prevNote => {
-            let newNote;
-            if (name === "title") {
-                newNote = {
-                    title: value,
-                    content: prevNote.content
-                };
-            }
-            else {
-                newNote = {
-                    title: prevNote.title,
-                    content: value
-                };
-            }
+            const newNote = {
+                ...prevNote,
+                [name]: value
+            };;
 
             return newNote;
         });
