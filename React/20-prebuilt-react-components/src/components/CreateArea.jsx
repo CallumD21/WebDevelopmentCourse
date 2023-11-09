@@ -9,6 +9,7 @@ function CreateArea(props) {
         content: ""
     };
 
+    const [isExpanded, setIsExpanded] = useState(false);
     const [note, setNote] = useState(emptyNote);
 
     function updateNote(event) {
@@ -31,12 +32,16 @@ function CreateArea(props) {
         setNote(emptyNote);
     }
 
+    function showFullCard() {
+        setIsExpanded(true);
+    }
+
     return (
         <div>
             <form className="create-note" onSubmit={onSubmit}>
-                <input name="title" placeholder="Title" value={note.title} onChange={updateNote} />
-                <textarea name="content" placeholder="Take a note..." rows="3" value={note.content} onChange={updateNote} />
-                <Zoom in={true}>
+                {isExpanded && <input name="title" placeholder="Title" value={note.title} onChange={updateNote} />}
+                <textarea name="content" placeholder="Take a note..." rows={isExpanded ? 3 : 1} value={note.content} onChange={updateNote} onClick={showFullCard} />
+                <Zoom in={isExpanded}>
                     <Fab>
                         <AddIcon />
                     </Fab>
